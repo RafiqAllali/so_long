@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rallali <rallali@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/28 02:53:10 by rallali           #+#    #+#             */
+/*   Updated: 2024/05/30 16:32:45 by rallali          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../so_long.h"
 
 size_t	ft_strlen(const char *s)
@@ -11,6 +23,7 @@ size_t	ft_strlen(const char *s)
 	}
 	return (i);
 }
+
 char	*ft_strdup(const char *s1)
 {
 	size_t	i;
@@ -30,6 +43,7 @@ char	*ft_strdup(const char *s1)
 	str[i] = '\0';
 	return (str);
 }
+
 char	*ft_strjoin(char *str, char *str1)
 {
 	int		i;
@@ -46,7 +60,7 @@ char	*ft_strjoin(char *str, char *str1)
 		j++;
 	s = malloc((i + j + 1) * sizeof(char));
 	if (!s)
-		return (free(str), free(str1), str = NULL, NULL);
+		return (free(str), free(str1), NULL);
 	i = -1;
 	while (str[++i])
 		s[i] = str[i];
@@ -54,12 +68,14 @@ char	*ft_strjoin(char *str, char *str1)
 	while (str1[++j])
 		s[i + j] = str1[j];
 	s[i + j] = '\0';
-	return (free(str),s);
+	return (free(str), s);
 }
-void ft_putchar(char c)
+
+void	ft_putchar(char c)
 {
-	write(1,&c,1);
+	write (1, &c, 1);
 }
+
 void	ft_putnbr(int n)
 {
 	unsigned int	i;
